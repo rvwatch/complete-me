@@ -7,6 +7,7 @@ describe('Trie', () => {
 
   beforeEach(() => {
     trie = new Trie();
+    node = new Node(null);
   });
 
 
@@ -19,8 +20,37 @@ describe('Trie', () => {
     expect(trie.words).to.eq(1);
     trie.insert('pepes');
     expect(trie.words).to.eq(2);
-    console.log( JSON.stringify(trie, null, 4) );
   })
+
+  it('should populate dictionary into trie', () => {
+    trie.populate();
+    expect(trie.words).to.equal(235886);
+    expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle']);
+  });
+
+  it('should rank my selected suggestions', () => {
+    trie.populate();
+    expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle']);
+    trie.select('pizzicato');
+    expect(trie.suggest('piz')).to.deep.equal(['pizzicato', 'pize', 'pizza', 'pizzeria', 'pizzle']);
+  });
+
+  it('should delete the word', () => {
+    trie.populate();
+    expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle']);
+    trie.delete('pizzicato');
+    expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzle']);
+  });
+
+
+  it('should rank my selected suggestions', () => {
+    trie.populate();
+    expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle']);
+    trie.select('pizzicato');
+    expect(trie.suggest('piz')).to.include.members(['pizzle']);
+  });
+
+
 
 
 });
