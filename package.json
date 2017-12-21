@@ -1,7 +1,7 @@
 {
-  "name": "TDD",
+  "name": "@rvwatch/complete-me",
   "version": "1.0.0",
-  "description": "",
+  "description": "Complete me word suggestions",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -11,7 +11,7 @@
     "eslint": "./node_modules/eslint/bin/eslint.js ./lib/*.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ricardo Viera",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.22.2",

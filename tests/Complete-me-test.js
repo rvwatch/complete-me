@@ -40,10 +40,10 @@ describe('Trie', () => {
     })
 
     it('should count words', () => {
-      trie.insert('app');
-      expect(trie.words).to.eq(1);
       trie.insert('pizza');
-      expect(trie.words).to.eq(2);
+      expect(trie.words).to.eq(1);
+      trie.insert('pie');
+      expect(trie.words).to.eq(2) ;
       trie.insert('monkey');
       expect(trie.words).to.eq(3);
       trie.insert('overboard');
