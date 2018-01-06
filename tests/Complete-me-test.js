@@ -39,7 +39,7 @@ describe('Trie', () => {
       expect(trie.root.children.a.children.p.children.p.isWord).to.equal(true);
     })
 
-    it('should count words', () => {
+    it.only('should count words', () => {
       trie.insert('pizza');
       expect(trie.words).to.eq(1);
       trie.insert('pie');
@@ -50,6 +50,7 @@ describe('Trie', () => {
       expect(trie.words).to.eq(4);
       trie.insert('squiggly');
       expect(trie.words).to.eq(5);
+      console.log( JSON.stringify(trie, null, 4) );
     })
 
     it('should not allow duplicate words', () => {

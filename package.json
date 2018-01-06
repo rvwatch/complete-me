@@ -1,8 +1,8 @@
 {
-  "name": "@rvwatch/complete-me",
+  "name": "@rvwatch/completeMe",
   "version": "1.0.0",
   "description": "Complete me word suggestions",
-  "main": "index.js",
+  "main": "/lib/index.js",
   "directories": {
     "test": "tests"
   },
